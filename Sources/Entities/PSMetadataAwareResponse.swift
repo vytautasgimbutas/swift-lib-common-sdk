@@ -1,7 +1,7 @@
 import ObjectMapper
 
 public class PSMetadataAwareResponse<T: Mappable>: Mappable {
-    public var items: [T]?
+    public var items: [T]!
     public var metaData: PSMetadata?
     
     required public init?(map: Map) {

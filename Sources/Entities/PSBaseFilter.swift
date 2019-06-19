@@ -2,6 +2,7 @@ import ObjectMapper
 
 open class PSBaseFilter: Mappable {
     public var limit: Int?
+    public var offset: Int?
     public var orderBy: String?
     public var orderDirection: String?
     
@@ -13,6 +14,7 @@ open class PSBaseFilter: Mappable {
     
     open func mapping(map: Map) {
         limit           <- map["limit"]
+        offset          <- map["offset"]
         orderBy         <- map["order_by"]
         orderDirection  <- map["order_direction"]
     }
