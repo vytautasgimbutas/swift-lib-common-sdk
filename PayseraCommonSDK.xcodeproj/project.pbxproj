@@ -14,6 +14,7 @@
 		ED8FAFF022BA550100792600 /* PSBaseFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8FAFEF22BA550100792600 /* PSBaseFilter.swift */; };
 		ED8FAFF222BA551B00792600 /* PSMetadataAwareResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8FAFF122BA551B00792600 /* PSMetadataAwareResponse.swift */; };
 		ED8FAFF422BA552900792600 /* PSMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8FAFF322BA552900792600 /* PSMetadata.swift */; };
+		ED8FB00422BA74F000792600 /* PSApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8FB00322BA74F000792600 /* PSApiError.swift */; };
 		EDA52E3A2260CF46002941FD /* PayseraCommonSDKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA52E392260CF46002941FD /* PayseraCommonSDKTests.swift */; };
 		EDA52E3C2260CF46002941FD /* PayseraCommonSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CD8617320EA1F32003E6195 /* PayseraCommonSDK.framework */; };
 		EDB433ED22B3FBDC0084A7FA /* PayseraCommonSDK.plist in Resources */ = {isa = PBXBuildFile; fileRef = EDB433EC22B3FBDC0084A7FA /* PayseraCommonSDK.plist */; };
@@ -39,6 +40,7 @@
 		ED8FAFEF22BA550100792600 /* PSBaseFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSBaseFilter.swift; sourceTree = "<group>"; };
 		ED8FAFF122BA551B00792600 /* PSMetadataAwareResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSMetadataAwareResponse.swift; sourceTree = "<group>"; };
 		ED8FAFF322BA552900792600 /* PSMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSMetadata.swift; sourceTree = "<group>"; };
+		ED8FB00322BA74F000792600 /* PSApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSApiError.swift; sourceTree = "<group>"; };
 		EDA52E372260CF45002941FD /* PayseraCommonSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PayseraCommonSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDA52E392260CF46002941FD /* PayseraCommonSDKTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayseraCommonSDKTests.swift; sourceTree = "<group>"; };
 		EDA52E3B2260CF46002941FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				ED8FAFEF22BA550100792600 /* PSBaseFilter.swift */,
 				ED8FAFF122BA551B00792600 /* PSMetadataAwareResponse.swift */,
 				ED8FAFF322BA552900792600 /* PSMetadata.swift */,
+				ED8FB00322BA74F000792600 /* PSApiError.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 				EDB433F122B3FC360084A7FA /* PSLoggerProtocol.swift in Sources */,
 				ED8FAFE522BA529100792600 /* PSMoney.swift in Sources */,
 				ED8FAFF022BA550100792600 /* PSBaseFilter.swift in Sources */,
+				ED8FB00422BA74F000792600 /* PSApiError.swift in Sources */,
 				ED8FAFF222BA551B00792600 /* PSMetadataAwareResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
