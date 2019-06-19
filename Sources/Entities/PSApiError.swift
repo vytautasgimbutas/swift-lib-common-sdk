@@ -52,15 +52,15 @@ public class PSApiError: Mappable, Error {
         return PSApiError(error: "unauthorized")
     }
     
-    public public class func mapping(json: String) -> PSApiError {
+    public class func mapping(json: String) -> PSApiError {
         return PSApiError(error: "mapping", description: "mapping failed: \(json)")
     }
     
-    public public class func noInternet() -> PSApiError {
+    public class func noInternet() -> PSApiError {
         return PSApiError(error: "no_internet", description: "No internet connection")
     }
     
-    public public class func cancelled() -> PSApiError {
+    public class func cancelled() -> PSApiError {
         return PSApiError(error: "cancelled")
     }
 }
