@@ -2,8 +2,8 @@ import Foundation
 import ObjectMapper
 
 public class PSMoney: Mappable {
-    public let amount: String
-    public let currency: String
+    public var amount: String
+    public var currency: String
     
     public init(amount: String, currency: String) {
         self.amount = amount
@@ -20,5 +20,7 @@ public class PSMoney: Mappable {
     }
     
     public func mapping(map: Map) {
+        amount    <- map["amount"]
+        currency  <- map["currency"]
     }
 }
