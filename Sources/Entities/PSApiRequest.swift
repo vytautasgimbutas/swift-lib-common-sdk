@@ -1,11 +1,14 @@
 import Alamofire
 import PromiseKit
 
-class PSApiRequest {
-    let requestEndPoint: URLRequestConvertible
-    let pendingPromise: (promise: Promise<Any>, resolver: Resolver<Any>)
+public class PSApiRequest {
+    public let requestEndPoint: URLRequestConvertible
+    public let pendingPromise: (promise: Promise<Any>, resolver: Resolver<Any>)
     
-    required init<T: URLRequestConvertible>(pendingPromise: (promise: Promise<Any>, resolver: Resolver<Any>), requestEndPoint: T) {
+    public init<T: URLRequestConvertible>(
+        pendingPromise: (promise: Promise<Any>,
+        resolver: Resolver<Any>), requestEndPoint: T
+    ) {
         self.pendingPromise = pendingPromise
         self.requestEndPoint = requestEndPoint
     }

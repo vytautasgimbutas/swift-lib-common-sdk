@@ -2,11 +2,11 @@ import Foundation
 import Alamofire
 import CommonCrypto
 
-class PSRequestAdapter: RequestAdapter {
+public class PSRequestAdapter: RequestAdapter {
     private let headers: PSRequestHeaders?
     private let credentials: PSApiJWTCredentials
     
-    init(credentials: PSApiJWTCredentials, headers: PSRequestHeaders? = nil) {
+    public init(credentials: PSApiJWTCredentials, headers: PSRequestHeaders? = nil) {
         self.credentials = credentials
         self.headers = headers
     }
