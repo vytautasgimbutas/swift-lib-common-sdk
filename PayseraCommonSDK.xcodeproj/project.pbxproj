@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED716BFE22C88F76006D90F8 /* PSApiJWTCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED716BFD22C88F76006D90F8 /* PSApiJWTCredentials.swift */; };
+		ED716C0022C88FE7006D90F8 /* JWTDecode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED716BFF22C88FE7006D90F8 /* JWTDecode.framework */; };
+		ED716C0222C8900A006D90F8 /* PSApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED716C0122C8900A006D90F8 /* PSApiRequest.swift */; };
+		ED716C0422C89040006D90F8 /* PSTokenRefresherProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED716C0322C89040006D90F8 /* PSTokenRefresherProtocol.swift */; };
+		ED716C0722C89088006D90F8 /* PSRequestAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED716C0622C89088006D90F8 /* PSRequestAdapter.swift */; };
+		ED716C0922C8909D006D90F8 /* PSRequestHeaders.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED716C0822C8909D006D90F8 /* PSRequestHeaders.swift */; };
+		ED716C0B22C890C7006D90F8 /* PSURLRequestHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED716C0A22C890C7006D90F8 /* PSURLRequestHeader.swift */; };
+		ED716C0E22C89203006D90F8 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED716C0C22C89203006D90F8 /* Alamofire.framework */; };
+		ED716C0F22C89203006D90F8 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED716C0D22C89203006D90F8 /* PromiseKit.framework */; };
 		ED8FAFE522BA529100792600 /* PSMoney.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8FAFE422BA529100792600 /* PSMoney.swift */; };
 		ED8FAFE822BA52B200792600 /* Cartfile.resolved in Resources */ = {isa = PBXBuildFile; fileRef = ED8FAFE622BA52B200792600 /* Cartfile.resolved */; };
 		ED8FAFE922BA52B200792600 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = ED8FAFE722BA52B200792600 /* Cartfile */; };
@@ -33,6 +42,15 @@
 
 /* Begin PBXFileReference section */
 		1CD8617320EA1F32003E6195 /* PayseraCommonSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PayseraCommonSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED716BFD22C88F76006D90F8 /* PSApiJWTCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSApiJWTCredentials.swift; sourceTree = "<group>"; };
+		ED716BFF22C88FE7006D90F8 /* JWTDecode.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JWTDecode.framework; path = Carthage/Build/iOS/JWTDecode.framework; sourceTree = "<group>"; };
+		ED716C0122C8900A006D90F8 /* PSApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSApiRequest.swift; sourceTree = "<group>"; };
+		ED716C0322C89040006D90F8 /* PSTokenRefresherProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSTokenRefresherProtocol.swift; sourceTree = "<group>"; };
+		ED716C0622C89088006D90F8 /* PSRequestAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSRequestAdapter.swift; sourceTree = "<group>"; };
+		ED716C0822C8909D006D90F8 /* PSRequestHeaders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSRequestHeaders.swift; sourceTree = "<group>"; };
+		ED716C0A22C890C7006D90F8 /* PSURLRequestHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSURLRequestHeader.swift; sourceTree = "<group>"; };
+		ED716C0C22C89203006D90F8 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		ED716C0D22C89203006D90F8 /* PromiseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PromiseKit.framework; path = Carthage/Build/iOS/PromiseKit.framework; sourceTree = "<group>"; };
 		ED8FAFE422BA529100792600 /* PSMoney.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSMoney.swift; sourceTree = "<group>"; };
 		ED8FAFE622BA52B200792600 /* Cartfile.resolved */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile.resolved; sourceTree = "<group>"; };
 		ED8FAFE722BA52B200792600 /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
@@ -53,7 +71,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED716C0022C88FE7006D90F8 /* JWTDecode.framework in Frameworks */,
+				ED716C0E22C89203006D90F8 /* Alamofire.framework in Frameworks */,
 				ED8FAFEE22BA53BA00792600 /* ObjectMapper.framework in Frameworks */,
+				ED716C0F22C89203006D90F8 /* PromiseKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,15 +123,27 @@
 		1CE7721E20EA353100CD53E2 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				ED716C0522C89082006D90F8 /* Services */,
 				EDB433EF22B3FC2A0084A7FA /* Protocols */,
 				EDB433EE22B3FC230084A7FA /* Entities */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
 		};
+		ED716C0522C89082006D90F8 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				ED716C0622C89088006D90F8 /* PSRequestAdapter.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		ED8FAFEC22BA53A800792600 /* Carthage */ = {
 			isa = PBXGroup;
 			children = (
+				ED716C0C22C89203006D90F8 /* Alamofire.framework */,
+				ED716C0D22C89203006D90F8 /* PromiseKit.framework */,
+				ED716BFF22C88FE7006D90F8 /* JWTDecode.framework */,
 				ED8FAFED22BA53BA00792600 /* ObjectMapper.framework */,
 			);
 			name = Carthage;
@@ -133,6 +166,10 @@
 				ED8FAFF122BA551B00792600 /* PSMetadataAwareResponse.swift */,
 				ED8FAFF322BA552900792600 /* PSMetadata.swift */,
 				ED8FB00322BA74F000792600 /* PSApiError.swift */,
+				ED716BFD22C88F76006D90F8 /* PSApiJWTCredentials.swift */,
+				ED716C0122C8900A006D90F8 /* PSApiRequest.swift */,
+				ED716C0822C8909D006D90F8 /* PSRequestHeaders.swift */,
+				ED716C0A22C890C7006D90F8 /* PSURLRequestHeader.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -141,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				EDB433F022B3FC360084A7FA /* PSLoggerProtocol.swift */,
+				ED716C0322C89040006D90F8 /* PSTokenRefresherProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -265,10 +303,16 @@
 			files = (
 				ED8FAFF422BA552900792600 /* PSMetadata.swift in Sources */,
 				EDB433F122B3FC360084A7FA /* PSLoggerProtocol.swift in Sources */,
+				ED716C0722C89088006D90F8 /* PSRequestAdapter.swift in Sources */,
 				ED8FAFE522BA529100792600 /* PSMoney.swift in Sources */,
+				ED716C0422C89040006D90F8 /* PSTokenRefresherProtocol.swift in Sources */,
+				ED716C0222C8900A006D90F8 /* PSApiRequest.swift in Sources */,
 				ED8FAFF022BA550100792600 /* PSBaseFilter.swift in Sources */,
+				ED716BFE22C88F76006D90F8 /* PSApiJWTCredentials.swift in Sources */,
 				ED8FB00422BA74F000792600 /* PSApiError.swift in Sources */,
+				ED716C0922C8909D006D90F8 /* PSRequestHeaders.swift in Sources */,
 				ED8FAFF222BA551B00792600 /* PSMetadataAwareResponse.swift in Sources */,
+				ED716C0B22C890C7006D90F8 /* PSURLRequestHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
