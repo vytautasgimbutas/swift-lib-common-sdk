@@ -16,6 +16,7 @@
 		ED716C0B22C890C7006D90F8 /* PSURLRequestHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED716C0A22C890C7006D90F8 /* PSURLRequestHeader.swift */; };
 		ED716C0E22C89203006D90F8 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED716C0C22C89203006D90F8 /* Alamofire.framework */; };
 		ED716C0F22C89203006D90F8 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED716C0D22C89203006D90F8 /* PromiseKit.framework */; };
+		ED716C1122C902D3006D90F8 /* PSBaseApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED716C1022C902D3006D90F8 /* PSBaseApiClient.swift */; };
 		ED8FAFE522BA529100792600 /* PSMoney.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8FAFE422BA529100792600 /* PSMoney.swift */; };
 		ED8FAFE822BA52B200792600 /* Cartfile.resolved in Resources */ = {isa = PBXBuildFile; fileRef = ED8FAFE622BA52B200792600 /* Cartfile.resolved */; };
 		ED8FAFE922BA52B200792600 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = ED8FAFE722BA52B200792600 /* Cartfile */; };
@@ -51,6 +52,7 @@
 		ED716C0A22C890C7006D90F8 /* PSURLRequestHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSURLRequestHeader.swift; sourceTree = "<group>"; };
 		ED716C0C22C89203006D90F8 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		ED716C0D22C89203006D90F8 /* PromiseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PromiseKit.framework; path = Carthage/Build/iOS/PromiseKit.framework; sourceTree = "<group>"; };
+		ED716C1022C902D3006D90F8 /* PSBaseApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSBaseApiClient.swift; sourceTree = "<group>"; };
 		ED8FAFE422BA529100792600 /* PSMoney.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSMoney.swift; sourceTree = "<group>"; };
 		ED8FAFE622BA52B200792600 /* Cartfile.resolved */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile.resolved; sourceTree = "<group>"; };
 		ED8FAFE722BA52B200792600 /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				ED716C0622C89088006D90F8 /* PSRequestAdapter.swift */,
+				ED716C1022C902D3006D90F8 /* PSBaseApiClient.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 				ED716C0922C8909D006D90F8 /* PSRequestHeaders.swift in Sources */,
 				ED8FAFF222BA551B00792600 /* PSMetadataAwareResponse.swift in Sources */,
 				ED716C0B22C890C7006D90F8 /* PSURLRequestHeader.swift in Sources */,
+				ED716C1122C902D3006D90F8 /* PSBaseApiClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -5,7 +5,7 @@ public class PSApiRequest {
     public let requestEndPoint: URLRequestConvertible
     public let pendingPromise: (promise: Promise<Any>, resolver: Resolver<Any>)
     
-    public init<T: URLRequestConvertible>(
+    public required init<T: URLRequestConvertible>(
         pendingPromise: (promise: Promise<Any>,
         resolver: Resolver<Any>), requestEndPoint: T
     ) {
