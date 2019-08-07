@@ -42,6 +42,16 @@ open class PSBaseApiClient {
             .then(createPromise)
     }
     
+    public func doRequest<RC: URLRequestConvertible>(requestRouter: RC) -> Promise<Any> {
+        let request = createRequest(requestRouter)
+        makeRequest(apiRequest: request)
+        
+        return request
+            .pendingPromise
+            .promise
+            .then(createPromise)
+    }
+    
     public func doRequest<RC: URLRequestConvertible>(requestRouter: RC) -> Promise<Void> {
         let request = createRequest(requestRouter)
         makeRequest(apiRequest: request)
@@ -144,6 +154,10 @@ open class PSBaseApiClient {
     
     private func createPromise(body: Any) -> Promise<Void> {
         return Promise.value(())
+    }
+    
+    private func createPromise(body: Any) -> Promise<Any> {
+        return Promise.value(body)
     }
     
     private func mapError(body: Any?) -> PSApiError {
