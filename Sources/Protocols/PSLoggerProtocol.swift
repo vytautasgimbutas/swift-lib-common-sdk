@@ -1,7 +1,7 @@
 import Foundation
 
 public enum PSLoggerLevel {
-    case INFO, ERROR
+    case DEBUG, INFO, ERROR
 }
 
 public protocol PSLoggerProtocol {

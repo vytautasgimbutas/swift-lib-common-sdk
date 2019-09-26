@@ -68,7 +68,7 @@ open class PSBaseApiClient {
             if let tokenRefresher = tokenRefresher, tokenRefresher.isRefreshing() {
                 requestsQueue.append(apiRequest)
             } else {
-                self.logger?.log(level: .INFO, message: "--> \(apiRequest.requestEndPoint.urlRequest!.url!.absoluteString)")
+                self.logger?.log(level: .DEBUG, message: "--> \(apiRequest.requestEndPoint.urlRequest!.url!.absoluteString)")
                 
                 sessionManager
                     .request(apiRequest.requestEndPoint)
@@ -77,8 +77,6 @@ open class PSBaseApiClient {
                         if let statusCode = response.response?.statusCode {
                             logMessage += " (\(statusCode))"
                         }
-                        
-                        self.logger?.log(level: .INFO, message: logMessage)
                         
                         let responseData = response.result.value
                         
@@ -89,8 +87,10 @@ open class PSBaseApiClient {
                         }
                         
                         if statusCode >= 200 && statusCode < 300 {
+                            self.logger?.log(level: .DEBUG, message: logMessage)
                             apiRequest.pendingPromise.resolver.fulfill(responseData)
                         } else {
+                            self.logger?.log(level: .ERROR, message: logMessage)
                             let error = self.mapError(body: responseData)
                             if statusCode == 401 {
                                 guard let tokenRefresher = self.tokenRefresher else {
