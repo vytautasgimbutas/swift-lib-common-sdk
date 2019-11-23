@@ -124,6 +124,12 @@ open class PSBaseApiClient {
         }
     }
     
+    public func cancelAllOperations() {
+        sessionManager.session.getAllTasks { tasks in
+            tasks.forEach { $0.cancel() }
+        }
+    }
+    
     private func resumeQueue() {
         for request in requestsQueue {
             makeRequest(apiRequest: request)
