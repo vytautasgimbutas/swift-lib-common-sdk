@@ -63,6 +63,10 @@ public class PSApiError: Mappable, Error {
         return PSApiError(error: "no_internet", description: "No internet connection")
     }
     
+    public class func internalServerError() -> PSApiError {
+        return PSApiError(error: "internal_server_error", description: "Server Error")
+    }
+    
     public class func cancelled() -> PSApiError {
         return PSApiError(error: "cancelled")
     }
