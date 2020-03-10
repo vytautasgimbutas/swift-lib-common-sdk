@@ -4,19 +4,19 @@ import PromiseKit
 import ObjectMapper
 
 open class PSBaseApiClient {
-    private let sessionManager: SessionManager
+    private let session: Session
     private let credentials: PSApiJWTCredentials
     private let tokenRefresher: PSTokenRefresherProtocol?
     private let logger: PSLoggerProtocol?
     private var requestsQueue = [PSApiRequest]()
     
     public init(
-        sessionManager: SessionManager,
+        session: Session,
         credentials: PSApiJWTCredentials,
         tokenRefresher: PSTokenRefresherProtocol?,
         logger: PSLoggerProtocol? = nil
     ) {
-        self.sessionManager = sessionManager
+        self.session = session
         self.tokenRefresher = tokenRefresher
         self.credentials = credentials
         self.logger = logger
@@ -70,7 +70,7 @@ open class PSBaseApiClient {
             } else {
                 self.logger?.log(level: .DEBUG, message: "--> \(apiRequest.requestEndPoint.urlRequest!.url!.absoluteString)")
                 
-                sessionManager
+                session
                     .request(apiRequest.requestEndPoint)
                     .responseJSON { (response) in
                         var logMessage = "<-- \(apiRequest.requestEndPoint.urlRequest!.url!.absoluteString)"
@@ -78,7 +78,7 @@ open class PSBaseApiClient {
                             logMessage += " (\(statusCode))"
                         }
                         
-                        let responseData = response.result.value
+                        let responseData = try? response.result.get()
                         
                         guard let statusCode = response.response?.statusCode else {
                             let error = self.mapError(body: responseData)
@@ -125,7 +125,7 @@ open class PSBaseApiClient {
     }
     
     public func cancelAllOperations() {
-        sessionManager.session.getAllTasks { tasks in
+        session.session.getAllTasks { tasks in
             tasks.forEach { $0.cancel() }
         }
     }

@@ -2,7 +2,7 @@ import Foundation
 import Alamofire
 import CommonCrypto
 
-public class PSRequestAdapter: RequestAdapter {
+public class PSRequestAdapter: RequestInterceptor {
     private let headers: PSRequestHeaders?
     private let credentials: PSApiJWTCredentials
     
@@ -11,17 +11,20 @@ public class PSRequestAdapter: RequestAdapter {
         self.headers = headers
     }
     
-    public func adapt(_ urlRequest: URLRequest) throws -> URLRequest {
+    public func adapt(_ urlRequest: URLRequest, for session: Session, completion: @escaping (Result<URLRequest, Error>) -> Void) {
         var urlRequest = urlRequest
-        
-        urlRequest.setValue("Bearer " + (credentials.token?.string ?? ""), forHTTPHeaderField: "Authorization")
+        urlRequest.headers.add(.authorization(bearerToken: credentials.token?.string ?? ""))
         
         if let headers = headers {
             headers.headers.forEach {
-                urlRequest.setValue($0.value, forHTTPHeaderField: $0.headerKey)
+                urlRequest.headers.add(name: $0.headerKey, value: $0.value)
             }
         }
-            
-        return urlRequest
+
+        completion(.success(urlRequest))
+    }
+    
+    public func retry(_ request: Request, for session: Session, dueTo error: Error, completion: @escaping (RetryResult) -> Void) {
+        completion(.doNotRetry)
     }
 }
