@@ -6,4 +6,7 @@ public enum PSLoggerLevel {
 
 public protocol PSLoggerProtocol {
     func log(level: PSLoggerLevel, message: String)
+    func log(level: PSLoggerLevel, message: String, request: URLRequest)
+    func log(level: PSLoggerLevel, message: String, response: HTTPURLResponse)
+    func log(level: PSLoggerLevel, message: String, response: HTTPURLResponse, error: PSApiError)
 }

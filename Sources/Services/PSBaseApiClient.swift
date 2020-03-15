@@ -63,35 +63,48 @@ open class PSBaseApiClient {
     }
     
     private func makeRequest(apiRequest: PSApiRequest) {
+        guard let urlRequest = apiRequest.requestEndPoint.urlRequest else { return }
+        
         let lockQueue = DispatchQueue(label: String(describing: tokenRefresher), attributes: [])
         lockQueue.sync {
             if let tokenRefresher = tokenRefresher, tokenRefresher.isRefreshing() {
                 requestsQueue.append(apiRequest)
             } else {
-                self.logger?.log(level: .DEBUG, message: "--> \(apiRequest.requestEndPoint.urlRequest!.url!.absoluteString)")
+                self.logger?.log(
+                    level: .DEBUG,
+                    message: "--> \(urlRequest.url!.absoluteString)",
+                    request: urlRequest
+                )
                 
                 session
                     .request(apiRequest.requestEndPoint)
                     .responseJSON { (response) in
-                        var logMessage = "<-- \(apiRequest.requestEndPoint.urlRequest!.url!.absoluteString)"
-                        if let statusCode = response.response?.statusCode {
-                            logMessage += " (\(statusCode))"
-                        }
-                        
-                        let responseData = try? response.result.get()
-                        
-                        guard let statusCode = response.response?.statusCode else {
-                            let error = self.mapError(body: responseData)
-                            apiRequest.pendingPromise.resolver.reject(error)
+                        guard let urlResponse = response.response else {
+                            apiRequest.pendingPromise.resolver.reject(PSApiError.unknown())
                             return
                         }
                         
+                        let responseData = try? response.result.get()
+                        let statusCode = urlResponse.statusCode
+                        let logMessage = "<-- \(urlRequest.url!.absoluteString) \(statusCode)"
+                        
                         if statusCode >= 200 && statusCode < 300 {
-                            self.logger?.log(level: .DEBUG, message: logMessage)
+                            self.logger?.log(
+                                level: .DEBUG,
+                                message: logMessage,
+                                response: urlResponse
+                            )
                             apiRequest.pendingPromise.resolver.fulfill(responseData)
                         } else {
-                            self.logger?.log(level: .ERROR, message: logMessage)
                             let error = self.mapError(body: responseData)
+                            
+                            self.logger?.log(
+                                level: .ERROR,
+                                message: logMessage,
+                                response: urlResponse,
+                                error: error
+                            )
+                            
                             if statusCode == 401 {
                                 guard let tokenRefresher = self.tokenRefresher else {
                                     apiRequest.pendingPromise.resolver.reject(error)
